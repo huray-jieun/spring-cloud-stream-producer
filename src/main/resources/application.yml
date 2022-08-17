@@ -1,0 +1,27 @@
+spring:
+  cloud:
+    function:
+      definition: direct
+    stream:
+      bindings:
+        direct-out-0:
+          binder: rabbit
+          destination: test
+      binders:
+        rabbit:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: 127.0.0.1
+                port: 55001
+                username: guest
+                password: guest
+
+  rabbitmq:
+    host: 127.0.0.1
+    port: 55001
+    username: guest
+    password: guest
+server:
+  port: 8080
